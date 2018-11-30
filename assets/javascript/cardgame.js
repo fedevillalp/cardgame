@@ -8,6 +8,7 @@ var gameState = 1;
          this.name = name;
          this.healthPoints = healthPoints;
          this.attackPower = attackPower;
+         this.baseAttackPower = attackPower;
          this.counterPower = counterPower;
 
          this.isAttacker = false;
@@ -21,6 +22,7 @@ var gameState = 1;
             name: this.name,
             healthPoints: this.healthPoints,
             attackPower: this.attackPower,
+            baseAttackPower: this.baseAttackPower,
             counterPower: this.counterPower,
 
             isAttacker: this.isAttacker,
@@ -67,7 +69,7 @@ var gameState = 1;
 
     setAttackPower(attackPower){
         this.attackPower = attackPower;
-        console.log("This is SetAttacker, You set attack power to :" + this.attackPower)
+        console.log("This is SetAttacker, You set attack power to :" + this.attackPower);
     }
 
 }
@@ -347,10 +349,9 @@ function whoFights(players){
     }
 
     //increases Attack power by base attack power 
-    players[attacker_index].setAttackPower(attack+attack);
-    console.log("Attacker index" + attacker_index);
-    console.log("Attacker index" + players[attacker_index]);
-    console.log("Attack value "+ character1.status().attackPower);
+    var baseAttackPower = players[attacker_index].status().baseAttackPower;
+    players[attacker_index].setAttackPower(attack + baseAttackPower);
+    
     
 }
 
