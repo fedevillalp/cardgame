@@ -65,6 +65,11 @@ var gameState = 1;
         console.log("This is KILL you killed: "+this.name);
     }
 
+    setAttackPower(attackPower){
+        this.attackPower = attackPower;
+        console.log("This is SetAttacker, You set attack power to :" + this.attackPower)
+    }
+
 }
 
 //Create four Characters
@@ -340,6 +345,12 @@ function whoFights(players){
             }
         break;
     }
+
+    //increases Attack power by base attack power 
+    players[attacker_index].setAttackPower(attack+attack);
+    console.log("Attacker index" + attacker_index);
+    console.log("Attacker index" + players[attacker_index]);
+    console.log("Attack value "+ character1.status().attackPower);
     
 }
 
