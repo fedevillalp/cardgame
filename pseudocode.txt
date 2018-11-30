@@ -1,0 +1,34 @@
+
+PLAYER CLASS
+
+ 
+
+Health Points 
+Attack Power (increases with every attack)
+Counter Attack Power (fixed)
+Status (selected, attacker, probable_defender, defender)
+Alive (tru, false)
+Display (depends on status)
+Attack
+
+
+
+create characters CLASS
+instantiate 4 character (health points attack powet and counter attack power)
+display all
+
+States:
+
+
+    0- Start Game: display all, initialize attacker:false and alive:true and defender:false probable_defender:false
+    1- If click --> mark cliked as attacker:true and all others as probable_defender:true
+        Display (moves probable defenders bellow)
+    1- If click --> mark cliked as defender:true
+        Display (moves defender bellow)
+    4- If click Fight button
+        identify attacker and defender and calculate new HPs and up attacker Power
+        If defender true and HP <0 then Alive:false
+        Display (deletes looser and display's required message)
+        STATE: ROUND OVER
+
+
