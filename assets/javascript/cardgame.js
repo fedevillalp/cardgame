@@ -61,6 +61,7 @@ var gameState = 1;
 
     kill(){
         this.isAlive = false;
+        this.isDefender = false;
         console.log("This is KILL you killed: "+this.name);
     }
 
