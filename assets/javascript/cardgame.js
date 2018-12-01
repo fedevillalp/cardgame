@@ -357,12 +357,14 @@ function whoFights(players){
     var counter_attack = players[defender_index].status().attackPower;
     var HP = players[attacker_index].status().healthPoints - counter_attack;
     players[attacker_index].setHP(HP);
+    $(".health").text('Your Health: '+HP);
 
     //Kill Attacker and End Game
     if (players[attacker_index].status().healthPoints <=0 ){
         players[0].kill(); players[1].kill(); players[2].kill(); players[3].kill();
         console.log("GAME OVER!");
         $(".game_over").append('<p>GAME OVER!</p>');
+        $(".health").text('');
         deletePlayers();
         printPlayers(players);
         gameState = 1;
