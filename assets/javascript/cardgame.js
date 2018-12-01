@@ -362,10 +362,11 @@ function whoFights(players){
     //Kill Attacker and End Game
     if (players[attacker_index].status().healthPoints <=0 ){
         players[0].kill(); players[1].kill(); players[2].kill(); players[3].kill();
-        console.log("GAME OVER!");
-        $(".game_over").append('<p>GAME OVER!</p>');
+        console.log("You exhausted your Health Points ! GAME OVER!");
+        $(".game_over").append('<p>You exhausted your Health Points ! GAME OVER!</p>');
         $(".health").text('');
         $(".col-sm-10").empty();
+        $(".fight").empty();
         deletePlayers();
         printPlayers(players);
         gameState = 1;
