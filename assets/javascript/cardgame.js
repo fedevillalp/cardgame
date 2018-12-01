@@ -1,6 +1,8 @@
 // 1 --> Main Menu , 2 --> Select Defender 3--> Play
 var gameState = 1;
 
+var win = true;
+
 //All Characters have the same attribute therefore we create a Character class
  class Character {
 
@@ -77,7 +79,7 @@ var gameState = 1;
 //Create four Characters
 var character1 = new Character("one",50,10,10);
 var character2 = new Character("two",60,20,20);
-var character3 = new Character("three",80,30,30);
+var character3 = new Character("three",100,30,30);
 var character4 = new Character("four",70,40,40);
 
 //Array of all Characters
@@ -364,6 +366,24 @@ function whoFights(players){
         players[0].kill(); players[1].kill(); players[2].kill(); players[3].kill();
         console.log("You exhausted your Health Points ! GAME OVER!");
         $(".game_over").append('<p>You exhausted your Health Points ! GAME OVER!</p>');
+        $(".health").text('');
+        $(".col-sm-10").empty();
+        $(".fight").empty();
+        deletePlayers();
+        printPlayers(players);
+        gameState = 1;
+    }
+
+    
+    for (let index = 0; index < players.length; index++) {
+        console.log(players[index].status().isAlive)
+        if(index != attacker_index){
+            win = players[index].status().isAlive;
+        }        
+    }
+
+    if (!win){
+        $(".game_over").append('<p>YOU WIN!</p>');
         $(".health").text('');
         $(".col-sm-10").empty();
         $(".fight").empty();
