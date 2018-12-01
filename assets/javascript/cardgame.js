@@ -365,13 +365,12 @@ function whoFights(players){
         console.log("GAME OVER!");
         $(".game_over").append('<p>GAME OVER!</p>');
         $(".health").text('');
+        $(".col-sm-10").empty();
         deletePlayers();
         printPlayers(players);
         gameState = 1;
     }
 
-
-    
 }
 
 
