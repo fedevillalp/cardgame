@@ -347,11 +347,26 @@ function whoFights(players){
             }
         break;
     }
-
+    
     //increases Attack power by base attack power 
     var baseAttackPower = players[attacker_index].status().baseAttackPower;
     players[attacker_index].setAttackPower(attack + baseAttackPower);
     
+    
+    //Defender counter attack
+    var counter_attack = players[defender_index].status().attackPower;
+    var HP = players[attacker_index].status().healthPoints - counter_attack;
+    players[attacker_index].setHP(HP);
+
+    if (players[attacker_index].status().healthPoints <=0 ){
+        players[attacker_index].kill();
+        gameState = 1;
+        console.log("GAME OVER!");
+        $(".game_over").append('<p>GAME OVER!</p>');
+        
+    }
+
+
     
 }
 
